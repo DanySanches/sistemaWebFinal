@@ -1,0 +1,52 @@
+<nav class="navbar navbar-dark bg-primary">
+    <form class="container-fluid justify-content-start">
+    <h3 class="text-light">Sistema Web </h3>
+    <button class="btn btn-sm btn-primary ms-2" type="button">Cadastrar</button>
+    <button class="btn btn-primary" type="button" style="display: inline-block;">Consultar</button>
+    <button class="btn btn-sm btn-primary" type="button" style="display: inline-block;">Atualizar</button>
+  </form>
+</nav>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-lg-12">
+      <h4>Consultar</h4>
+      <p>Sistema utilizado para agendamentos de serviços</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="container text-center overflow-auto">
+        <div class="row bg-primary text-light align-items-start d-flex flex-wrap">
+          <div class="col-sm">Nome</div>
+          <div class="col-sm">Telefone</div>
+          <div class="col-sm">Origem</div>
+          <div class="col-sm">Data de Contato</div>
+          <div class="col-sm">Observação</div>
+          <div class="col-sm">
+          </div>
+        </div>
+
+        <!-- Exemplo de repetição de dados usando Handlebars -->
+        {{#each post}}
+        {{#dataValues}}
+        <div class="row bg-light align-items-center d-flex flex-wrap">
+          <div class="col-sm">{{nome}}</div>
+          <div class="col-sm">{{telefone}}</div>
+          <div class="col-sm">{{origem}}</div>
+          <div class="col-sm">{{data_contato}}</div>
+          <div class="col-sm">{{observacao}}</div>
+          <div class="col-sm">
+            <div class="btn-group" role="group"> 
+          </div>
+             <button type="button" class="btn btn-primary mt-2"><a href="/atualizar/{{id}}" style="color:inherit">Editar</a></button>
+              <button type="button" class="btn btn-danger ms-2 mt-2"><a href="/excluir/{{id}}" style="color:inherit">Excluir</a></button>
+            </div>
+        </div>
+        
+        {{/dataValues}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>

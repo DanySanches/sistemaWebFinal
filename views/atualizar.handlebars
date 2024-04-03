@@ -1,0 +1,78 @@
+<nav class="navbar bg-primary">
+  <form class="container-fluid justify-content-start">
+    <h3 style="color: white;">Sistema Web </h3>
+    <button class="btn btn-sm btn-primary ms-2" type="button">Cadastrar</button>
+    <button class="btn btn-sm btn-primary" type="button">Consultar</button>
+    <button class="btn btn-primary" type="button">Atualizar</button>
+  </form>
+</nav>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col">
+      <h4>Atualizar - Agendamento de Potenciais Clientes</h4>
+
+      <p> Sistema Utilizado para agendamentos de serviços</p>
+      {{#each post}}
+        {{#dataValues}}
+            <form action="/atualizar" method="POST">
+              <div class="form-group">
+                <input type="hidden" name="id" class="form-control" id="id" value="{{id}}">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" name="nome" value="{{nome}}" />
+              </div>
+
+              <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="text" class="form-control" id="telefone" name="telefone" value="{{telefone}}" />
+              </div>
+
+              <div class="form-group">
+                <label for="origem">Origem:</label>
+                <div class="input-group">
+                  <select class="form-control" id="origem" name="origem" value="{{origem}}">
+                    <option value="celular">Celular</option>
+                    <option value="tablet">Tablet</option>
+                    <option value="computador">Computador</option>
+                    <option value="outro">Outro</option>
+                  </select>
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">
+                      <i class="fas fa-chevron-down"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="cont">Data do Contato:</label>
+                <div class="input-group date" data-provide="datepicker">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="data_contato"
+                    name="data_contato"
+                    placeholder="mm/dd/yy"
+                    value="{{data_contato}}"
+                  />
+                  <div class="input-group-append">
+                    <span class="input-group-text"><i
+                        class="fas fa-calendar-alt fa-2x"
+                      ></i></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="observacao">Observação:</label>
+                <textarea class="form-control" id="observacao" name="observacao" rows="3" value="{{observacao}}"></textarea>
+              </div>
+              <br/>
+              <button type="submit" class="btn btn-primary">Atualizar</button>
+
+            </form>
+        {{/dataValues}}
+      {{/each}}
+    </div>
+  </div>
+</div>
+
